@@ -28,16 +28,20 @@ public class ConsolePrinter {
 	
 	public void printAfterLogin() {
 		
+		populateItems(); // will probably want to move data outside of this class (if no DB)
 		printHeader();
-		System.out.println("| Items		Item Code  	  Price		|");
+		System.out.println("|\tItems\tItem Code\tPrice\t|");
 		int itemCount = 1;
 		for(Item item : items) {
-			System.out.println(itemCount + ". " + item.getName() + "\t" + item.getCode() + "\t" + item.getPrice());
+			System.out.println(itemCount++ + ". " + item.getName() + "\t" + item.getCode() + "\t\t" + item.getPrice());
 		}
 	}
 	
 	public void printInvoice() {
-		
+		printHeader();
+		// TODO: Do I want to do all sysouts in this class?
+		// or should I prepare String data to be printed in a Service class, and then print out template here
+		// sort of like making a component elsewhere and calling render() here
 	}
 	
 	public void printHeader() {

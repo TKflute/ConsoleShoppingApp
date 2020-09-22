@@ -8,5 +8,6 @@ public class CoreJavaStandAloneShoppingApplication {
 		
 		ConsolePrinter cPrint = new ConsolePrinter();
 		cPrint.printMainMenu();
+		cPrint.printAfterLogin();
 	}
 }
