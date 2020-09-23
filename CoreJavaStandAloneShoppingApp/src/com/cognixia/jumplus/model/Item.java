@@ -6,6 +6,9 @@ public class Item {
 	private String code;
 	private double price;
 	
+	// TODO: add an enum for different Item categories/departments
+	// so when buying an item, customer can view Items by department or view all Items
+	
 	public Item(String name, String code, double price) {
 		super();
 		this.name = name;

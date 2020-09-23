@@ -7,7 +7,13 @@ import com.cognixia.jumplus.model.Item;
 
 public class ConsolePrinter {
 
-	List<Item> items = new ArrayList<Item>();
+	// TODO: I may change this class from my approach for last project
+	// Could use this class like a place to call render() for things that are more complicated to display
+	// this would be for menus that aren't interactive w/ each line
+	// could assemble these menus in a service layer, just to separate concerns a bit more
+	// still use this class to print interactive menus, like creating account
+	
+	List<Item> items = new ArrayList<Item>(); // this will be moved to Store
 	
 	public void populateItems() {
 		

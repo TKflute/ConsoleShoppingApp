@@ -1,13 +1,18 @@
 package com.cognixia.jumplus.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
 
-	// maybe use an inner class called OrderItem like I did for .NET project (CartLine)
+	private long id;
+	private LocalDateTime ldt;
+	private Customer customer;
+	
 	// will maybe choose a diff collection based on how I need to access the items
 	private List<OrderItem> orderItems = new ArrayList<OrderItem>();
+	
 	
 	public class OrderItem{
 		
@@ -15,5 +20,14 @@ public class Order {
 		private Item item;
 		private int qty;
 		
+	}
+	
+	// could probably do this with a lambda or stream
+	public double calculateSum() {
+		double sum = 0;
+		for(OrderItem orderItem : orderItems) {
+			sum += orderItem.item.getPrice();
+		}
+		return sum;
 	}
 }
