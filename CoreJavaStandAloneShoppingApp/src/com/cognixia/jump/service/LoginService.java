@@ -1,0 +1,39 @@
+package com.cognixia.jump.service;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class LoginService {
+
+	// this class will verify login credentials in 2 ways:
+	// 1) When creating an account, check for valid email and password format w/ regex
+	// 2) When logging in, check against valid user accounts
+	// TODO: where to store logged in Customer? Also, make separate service for CreateAccount?
+	
+	private String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+	private Pattern emailPattern = Pattern.compile(emailRegex);
+	private String passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$";
+	private Pattern passwordPattern = Pattern.compile(passwordRegex);
+	
+	// TODO: way to make one validateField method?
+	public boolean validateEmail(String email) {
+		
+		 Matcher matcher = emailPattern.matcher(email);
+		 if(!matcher.matches()) {
+			 System.out.println("Invalid email address.");
+			 return false;
+		 }
+		 return true;
+	}
+	
+	public boolean validatePassword(String password) {
+		
+		 Matcher matcher = passwordPattern.matcher(password);
+		 if(!matcher.matches()) {
+			 System.out.println("Invalid password format.");
+			 return false;
+		 }
+		 return true;
+	}
+	
+}
