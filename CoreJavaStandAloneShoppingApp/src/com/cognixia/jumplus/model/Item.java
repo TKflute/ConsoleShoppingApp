@@ -42,7 +42,7 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item [name=" + name + ", code=" + code + ", price=" + price + "]";
+		return getName() + "\t" + getCode() + "\t\t" + getPrice();
 	}
 	
 }

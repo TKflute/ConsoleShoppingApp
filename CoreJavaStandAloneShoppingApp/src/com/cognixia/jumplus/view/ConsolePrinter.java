@@ -1,9 +1,9 @@
 package com.cognixia.jumplus.view;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.cognixia.jumplus.model.Item;
+import com.cognixia.jumplus.model.Store;
 
 public class ConsolePrinter {
 
@@ -12,14 +12,7 @@ public class ConsolePrinter {
 	// this would be for menus that aren't interactive w/ each line
 	// could assemble these menus in a service layer, just to separate concerns a bit more
 	// still use this class to print interactive menus, like creating account
-	
-	List<Item> items = new ArrayList<Item>(); // this will be moved to Store
-	
-	public void populateItems() {
-		
-		items.add(new Item("Shirt", "S1", 25.00));
-		items.add(new Item("pants", "p1", 10.00));
-	}
+	Store store = new Store();
 	
 	public void printMainMenu() {
 		
@@ -34,10 +27,11 @@ public class ConsolePrinter {
 	
 	public void printAfterLogin() {
 		
-		populateItems(); // will probably want to move data outside of this class (if no DB)
 		printHeader();
-		System.out.println("|\tItems\tItem Code\tPrice\t|");
+		System.out.println("|  Items\tItem Code\tPrice\t|\n");
+		
 		int itemCount = 1;
+		List<Item> items = store.getItems();
 		for(Item item : items) {
 			System.out.println(itemCount++ + ". " + item.getName() + "\t" + item.getCode() + "\t\t" + item.getPrice());
 		}
