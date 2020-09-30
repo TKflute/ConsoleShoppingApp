@@ -2,8 +2,8 @@ package com.cognixia.jumplus.view;
 
 import java.util.List;
 
+import com.cognixia.jump.service.CreateAccountService;
 import com.cognixia.jumplus.controller.ShoppingAppController;
-import com.cognixia.jumplus.model.Customer;
 import com.cognixia.jumplus.model.Item;
 import com.cognixia.jumplus.model.Store;
 
@@ -16,6 +16,7 @@ public class ConsolePrinter {
 	// still use this class to print interactive menus, like creating account
 	private Store store;
 	private ShoppingAppController controller;
+	private CreateAccountService accountService;
 	
 	public ConsolePrinter() {
 		store = new Store();
@@ -34,28 +35,33 @@ public class ConsolePrinter {
 	}
 	
 	public void printAccountCreation() {
-		System.err.println("+---------------------------\n| Enter Details For New Account |\n+---------------------------\n");
-		System.err.println("Customer Name:\n");
+		
+		System.out.println("+---------------------------\n| Enter Details For New Account |\n+---------------------------\n");
+		System.out.println("Customer Name:\n");
 		String name = controller.takeInput();
 		
-		System.err.println("Customer Address:\n");
+		System.out.println("Customer Address:\n");
 		String address = controller.takeInput();
 		
-		System.err.println("Customer Phone Number:\n");
+		System.out.println("Customer Phone Number:\n");
 		String phoneNumber = controller.takeInput();
 		
-		System.err.println("Enter a valid email address:\n");
-		String email = controller.takeInput();
-		// validate email w/ CAS
+		boolean isValid = false;
+			
+		while(isValid == false) {
+			System.out.println("Enter a valid email address:\n");
+			String email = controller.takeInput();
+			// isValid = CreateAccountService.validateEmail(email);
+		}
 		
-		System.err.println("Choose a password (8-20 characters including upper, lower, and special):\n");
+		
+		
+		
+		
+		System.out.println("Choose a password (8-20 characters including upper, lower, and special):\n");
 		String password = controller.takeInput();
 		
 		
-//		Account newAccount = dataService.createAccount(accountType, initialDeposit);
-//		dataService.addCustomer(new Customer(name, address, phoneNumber, userId, password, newAccount));
-//		displayCustomerLogin();
-		// TODO: write to file?
 	}
 	
 	public void printAfterLogin() {

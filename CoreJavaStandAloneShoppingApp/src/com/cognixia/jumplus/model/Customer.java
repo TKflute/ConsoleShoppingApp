@@ -6,7 +6,7 @@ public class Customer {
 	private String name;
 	private String address;
 	private String phoneNumber;
-	private String email; // not sure if I need both id and email for this
+	private String email; 
 	private String password;
 	
 	public Customer(long id, String name, String address, String phoneNumber, String email, String password) {
