@@ -2,6 +2,8 @@ package com.cognixia.jumplus.view;
 
 import java.util.List;
 
+import com.cognixia.jumplus.controller.ShoppingAppController;
+import com.cognixia.jumplus.model.Customer;
 import com.cognixia.jumplus.model.Item;
 import com.cognixia.jumplus.model.Store;
 
@@ -12,7 +14,13 @@ public class ConsolePrinter {
 	// this would be for menus that aren't interactive w/ each line
 	// could assemble these menus in a service layer, just to separate concerns a bit more
 	// still use this class to print interactive menus, like creating account
-	Store store = new Store();
+	private Store store;
+	private ShoppingAppController controller;
+	
+	public ConsolePrinter() {
+		store = new Store();
+		controller = new ShoppingAppController();
+	}
 	
 	public void printMainMenu() {
 		
@@ -23,6 +31,31 @@ public class ConsolePrinter {
 		System.out.println("|   4.REPLACE AN ITEM	        |");
 		System.out.println("|   5.EXIT			|");
 		System.out.println("+=====================================+");
+	}
+	
+	public void printAccountCreation() {
+		System.err.println("+---------------------------\n| Enter Details For New Account |\n+---------------------------\n");
+		System.err.println("Customer Name:\n");
+		String name = controller.takeInput();
+		
+		System.err.println("Customer Address:\n");
+		String address = controller.takeInput();
+		
+		System.err.println("Customer Phone Number:\n");
+		String phoneNumber = controller.takeInput();
+		
+		System.err.println("Enter a valid email address:\n");
+		String email = controller.takeInput();
+		// validate email w/ CAS
+		
+		System.err.println("Choose a password (8-20 characters including upper, lower, and special):\n");
+		String password = controller.takeInput();
+		
+		
+//		Account newAccount = dataService.createAccount(accountType, initialDeposit);
+//		dataService.addCustomer(new Customer(name, address, phoneNumber, userId, password, newAccount));
+//		displayCustomerLogin();
+		// TODO: write to file?
 	}
 	
 	public void printAfterLogin() {

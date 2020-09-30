@@ -6,16 +6,16 @@ public class Customer {
 	private String name;
 	private String address;
 	private String phoneNumber;
-	private String userName; // not sure if I need both id and userName for this
+	private String email; // not sure if I need both id and email for this
 	private String password;
 	
-	public Customer(long id, String name, String address, String phoneNumber, String userName, String password) {
+	public Customer(long id, String name, String address, String phoneNumber, String email, String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.phoneNumber = phoneNumber;
-		this.userName = userName;
+		this.email = email;
 		this.password = password;
 	}
 
@@ -51,12 +51,12 @@ public class Customer {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
@@ -70,7 +70,7 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", name=" + name + ", address=" + address + ", phoneNumber=" + phoneNumber
-				+ ", userName=" + userName + ", password=" + password + "]";
+				+ ", email=" + email + ", password=" + password + "]";
 	}
 	
 }
